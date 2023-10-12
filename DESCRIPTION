@@ -1,0 +1,20 @@
+Package: RRsp1
+Type: Package
+Title: One-sayers model for the Extended Crosswise design
+Version: 1.0
+Authors&R: person("Cruyff", "Maarten", email = "m.cruyff@uu.nl", 
+  role =  c("aut", "cre"))
+Description: Fits the ECWM, the one-sayers model, and optionally the one-sayers 
+   logistic regression model.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr,
+    ggplot2,
+    tidyr,
+    numDeriv,
+    rlang
+Depends: 
+    R (>= 4.0)
+RoxygenNote: 7.2.3
