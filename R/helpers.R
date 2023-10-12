@@ -50,7 +50,7 @@ stats0 <- function(data, m0, pyes, dv)
            p = pt(-abs(t), nrow(data) - 1),
            across(everything(), ~ round(.x, 3)))
 
-  list(G2 = G2, coefs = coefs)
+  list(G2 = G2, coefs = coefs, fit = fit)
 }
 
 
