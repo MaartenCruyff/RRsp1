@@ -47,7 +47,7 @@ stats0 <- function(data, m0, pyes, dv)
                       se  = sqrt(1/m0$hessian),
                       row.names = paste(dv)) %>%
     mutate(t = est / se,
-           p = pt(-abs(t), nrow(data) - 1),
+           p = 2 * pt(-abs(t), nrow(data) - 1),
            across(everything(), ~ round(.x, 3)))
 
   list(G2 = G2, coefs = coefs, fit = fit)
@@ -66,7 +66,7 @@ stats1 <- function(m0, m1, dv, n)
   coefs <- data.frame(est = logistic(par),
                       se  = se,
                       t   = logistic(par) / se,
-                      p   = pt(q = -abs(logistic(par) / se), df = n),
+                      p   = 2 * pt(q = -abs(logistic(par) / se), df = n),
                       row.names = c(paste(dv), "sp-one")) %>%
     mutate(across(everything(), ~ round(.x, 3)))
 
@@ -90,7 +90,7 @@ stats2 <- function(m1, m2, dv, n, pars, names0, names1)
   coefs  <- data.frame(est = par,
                        se  = se,
                        t   = par / se,
-                       p   = pt(-abs(par / se), df  = n - length(par)),
+                       p   = 2 * pt(-abs(par / se), df  = n - length(par)),
                        row.names = c(paste(dv, names0), paste("sp-one", names1))) %>%
     mutate(across(everything(), ~round(.x, 3)))
 
